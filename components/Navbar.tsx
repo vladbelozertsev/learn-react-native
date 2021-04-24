@@ -16,10 +16,7 @@ export const Navbar = (props: Props) => {
 
   return (
     <View style={styles.mainView}>
-      <Text>1 </Text>
-      <Text>2 </Text>
-      <Text>3 </Text>
-      <Text>{props.title}</Text>
+      <Text style={styles.header}>{props.title}</Text>
       <Text style={styles.text}>5 WINDOW_HEIGHT- {WINDOW_HEIGHT}</Text>
       <Text style={styles.text}>6 STATUS_BAR - {STATUS_BAR}</Text>
       <Text style={styles.text}>7 DEVICE_HEIGHT - {DEVICE_HEIGHT} </Text>
@@ -30,12 +27,14 @@ export const Navbar = (props: Props) => {
 const styles = StyleSheet.create({
   mainView: {
     alignItems: 'center',
-    backgroundColor: '#3949ab',
-    borderColor: 'tomato',
-    borderWidth: 2,
+    backgroundColor: '#80b0e8',
     justifyContent: 'center',
     paddingBottom: 25,
     paddingTop: (StatusBar.currentHeight || 24) + 25,
+  },
+  header: {
+    fontSize: 32,
+    color: 'tomato',
   },
   text: {
     color: '#fff',

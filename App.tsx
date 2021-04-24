@@ -6,7 +6,7 @@ import { StyleSheet, View } from 'react-native';
 const App = () => {
   return (
     <View>
-      <Navbar title="Navbar" />
+      <Navbar title="MY Navbar" />
       <AddTodo />
     </View>
   );

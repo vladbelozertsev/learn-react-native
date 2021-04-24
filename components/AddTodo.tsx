@@ -1,5 +1,6 @@
 import React, { useState, useRef, LegacyRef } from 'react';
-import { Text, View, TextInput, Button } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { globalStyles } from './global-styles';
 
 export const AddTodo = () => {
   const inpRef = useRef<TextInput>(null);
@@ -7,9 +8,12 @@ export const AddTodo = () => {
 
   return (
     <View>
-      <Text>adasdasdasd</Text>
-      <TextInput />
-      <TextInput ref={inpRef} onChangeText={(text) => setText(text)} />
+      <Text>{'\n'}</Text>
+      <Text>adasdasdasd ghghg {'\n'}</Text>
+      <TextInput style={globalStyles.inp} />
+      <Text>{'\n'}</Text>
+      <TextInput style={styles.inp} ref={inpRef} onChangeText={(text) => setText(text)} />
+      <Text>{'\n'}</Text>
       <Button
         title="asasaas"
         onPress={() => {
@@ -21,3 +25,10 @@ export const AddTodo = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  inp: {
+    ...globalStyles.inp,
+    borderColor: 'tomato',
+  },
+});
