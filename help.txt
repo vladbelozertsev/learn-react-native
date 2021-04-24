@@ -1,0 +1,8 @@
+Видео:
+https://www.youtube.com/watch?v=7KwtXNoYQEY
+https://www.youtube.com/watch?v=QKxnJScqpAk - использование useRef
+
+Прочее:
+https://stackoverflow.com/questions/46126521/android-navigation-bar-height-react-native - status bar height
+https://reactnative.dev/docs/textinput - о TextInput
+https://reactnative.dev/docs/handling-text-input - получение значения TextInput
