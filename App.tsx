@@ -1,24 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AddTodo } from './components/AddTodo';
 import { Navbar } from './components/Navbar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
+import { Todos } from './components/Todos';
 
-const App = () => {
+type Todos = {
+  id: string;
+  title: string;
+}[];
+
+export default function () {
+  const [todos, setTodos] = useState<Todos>([]);
+  const addTodo = (title: string) => {
+    const newTodo = {
+      id: Date.now().toString(),
+      title,
+    };
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
+  };
+
+  const removeTodos = () => {
+    setTodos([]);
+  };
+
+  useEffect(() => {
+    console.log(todos);
+  }, [todos]);
+
   return (
-    <View>
+    <ScrollView>
       <Navbar title="MY Navbar" />
-      <AddTodo />
-    </View>
+      <AddTodo addTodo={addTodo} removeTodos={removeTodos} />
+      <Todos todos={todos} />
+    </ScrollView>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  // container: {
-  //   flex: 1,
-  //   backgroundColor: '#fff',
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  // },
-});
-
-export default App;
+const styles = StyleSheet.create({});

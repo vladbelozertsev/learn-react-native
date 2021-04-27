@@ -15,7 +15,7 @@ export const Navbar = (props: Props) => {
   console.log(WINDOW_HEIGHT);
 
   return (
-    <View style={styles.mainView}>
+    <View style={styles.navbar}>
       <Text style={styles.header}>{props.title}</Text>
       <Text style={styles.text}>5 WINDOW_HEIGHT- {WINDOW_HEIGHT}</Text>
       <Text style={styles.text}>6 STATUS_BAR - {STATUS_BAR}</Text>
@@ -25,7 +25,7 @@ export const Navbar = (props: Props) => {
 };
 
 const styles = StyleSheet.create({
-  mainView: {
+  navbar: {
     alignItems: 'center',
     backgroundColor: '#80b0e8',
     justifyContent: 'center',

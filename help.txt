@@ -8,3 +8,10 @@
 3) https://reactnative.dev/docs/handling-text-input - получение значения TextInput
 4) https://stackoverflow.com/questions/30853178/react-native-global-styles - о глобальных стилях
 5) https://stackoverflow.com/questions/32469570/how-can-i-insert-a-line-break-into-a-text-component-in-react-native - перенос строки, т.е. аналог <br />
+6) https://stackoverflow.com/questions/43585297/react-native-button-style-not-work - про стилизацию Button
+7) https://medium.com/@infinitypaul/react-native-view-vs-text-simplified-c6722569aeab - View vs Text
+
+Заметки:
+#View - аналог div, Text - аналог span. View по умлочанию имеет display: flex. Для Text не может быть применен display: flex.
+#ScrollView - если элемент не помещается в высоту экрана, нужно использовать ScrollView. При этом все родительские элемента,
+  данного элемента также должны быть ScrollView, иначе скролл не будет работать.
