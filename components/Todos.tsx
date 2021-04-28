@@ -9,13 +9,13 @@ interface Props {
   removeTodo: (id: string) => void;
 }
 
-interface PropsFlatItem {
+interface PropsTodoItem {
   item: { id: string; title: string };
   removeTodo: (id: string) => void;
 }
 
 // сюда падает элемент из массива todos[]
-const TodoItem = ({ item, removeTodo }: PropsFlatItem) => (
+const TodoItem = ({ item, removeTodo }: PropsTodoItem) => (
   <TouchableOpacity
     activeOpacity={0.5}
     onPress={() => {
@@ -55,26 +55,26 @@ export const Todos = ({ todos, removeTodo }: Props) => {
 
 const styles = StyleSheet.create({
   todos: {
+    backgroundColor: '#ddd',
+    flex: 1,
+    margin: 15,
     paddingHorizontal: 15,
     paddingVertical: 20,
-    backgroundColor: '#ddd',
-    margin: 15,
-    flex: 1,
   },
   header: {
     color: 'tomato',
-    textAlign: 'center',
     fontSize: 22,
     marginBottom: 8,
+    textAlign: 'center',
   },
   text: {
-    textAlign: 'center',
+    backgroundColor: 'rgba(255, 0, 0, 0.15)',
+    borderColor: 'tomato',
+    borderRadius: 5,
+    borderWidth: 2,
+    marginVertical: 5,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    borderColor: 'tomato',
-    borderWidth: 2,
-    backgroundColor: 'rgba(255, 0, 0, 0.15)',
-    marginVertical: 5,
-    borderRadius: 5,
+    textAlign: 'center',
   },
 });

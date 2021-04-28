@@ -2,6 +2,8 @@
 1) https://www.youtube.com/watch?v=7KwtXNoYQEY
 2) https://www.youtube.com/watch?v=QKxnJScqpAk - использование useRef
 3) https://www.youtube.com/watch?v=xbfx6lIGRB0 - вертикальный и горизонтальный скрол
+4) https://www.youtube.com/watch?v=CurYICWI0T8 - интерактивная карта на сайт
+5) https://www.youtube.com/watch?v=xyzW59BQwoI - FlatList, lazy loading с индикатором загрузки (спиннером)
 
 Официальный сайт:
 1) https://reactnative.dev/docs/accessibilityinfo - об API React Native (в т.ч. управление: alert, анимации и прочее)
@@ -21,6 +23,7 @@
 11) https://stackoverflow.com/questions/49648292/how-to-apply-lazy-loading-in-flatlist-in-react-native - lazy loading в FlatList
 12) https://stackoverflow.com/questions/38735017/react-native-how-to-lazyload-image - lazy loading изображений
 13) https://stackoverflow.com/questions/55823401/how-to-pass-props-in-the-component-to-flatlist-renderitem - проброска пропсов в renderItem от FlatList
+14) https://github.com/coldiary/react-image-mapper - интерактивные изображения
 
 Заметки:
 #View - аналог div, Text - аналог span. View по умлочанию имеет display: flex. Для Text не может быть применен display: flex.
