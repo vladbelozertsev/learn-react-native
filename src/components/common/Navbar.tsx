@@ -29,15 +29,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#80b0e8',
     justifyContent: 'center',
-    paddingBottom: 25,
-    paddingTop: (StatusBar.currentHeight || 24) + 25,
+    paddingBottom: 10,
+    paddingTop: (StatusBar.currentHeight || 24) + 10,
   },
   header: {
-    fontSize: 32,
+    fontSize: 22,
     color: 'tomato',
   },
   text: {
     color: '#fff',
-    fontSize: 20,
+    fontSize: 14,
   },
 });

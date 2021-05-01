@@ -1,14 +1,14 @@
 import React, { useRef, useState } from 'react';
-import { StyleSheet, Text, TextInput, View, Alert } from 'react-native';
-import { globalStyles } from './global-styles';
-import { Btn } from './_common/Btn';
+import { StyleSheet, TextInput, View, Alert } from 'react-native';
+import { globalStyles } from '../_styles/globalStyles';
+import { MyButton } from '../_reusable/MyButton';
 
 interface Props {
   addTodo: (title: string) => void;
   removeTodos: () => void;
 }
 
-export const AddTodo = ({ addTodo, removeTodos }: Props) => {
+export const AddTodo = (props: Props) => {
   const inpRef = useRef<TextInput>(null);
   const [text, setText] = useState('123');
 
@@ -17,14 +17,29 @@ export const AddTodo = ({ addTodo, removeTodos }: Props) => {
       Alert.alert('Название дела не может быть пустым');
       return;
     }
-    addTodo(text);
+    props.addTodo(text);
     setText('');
     inpRef?.current?.focus();
   };
 
+  const showConfirmAlert = () =>
+    Alert.alert('Удалить все дела', 'Вы уверены, что хотите удалить все дела ?', [
+      {
+        text: 'Да',
+        style: 'destructive',
+        onPress: () => {
+          console.log('Все дела удалены!');
+          props.removeTodos();
+        },
+      },
+      {
+        text: 'Нет',
+        style: 'cancel',
+      },
+    ]);
+
   return (
     <View style={styles.addTodo}>
-      <Text>{'\n'}</Text>
       <TextInput
         defaultValue={text}
         onChangeText={setText}
@@ -34,26 +49,17 @@ export const AddTodo = ({ addTodo, removeTodos }: Props) => {
         autoCorrect={false}
         autoCapitalize="words"
       />
-      <TextInput
-        placeholder="other input"
-        style={styles.inp}
-        autoCorrect={false}
-        autoCapitalize="none"
-        keyboardType="numeric"
-      />
       <View style={styles.btnAdd}>
-        <Btn title="Добавить" onPress={handleAddTodo} />
+        <MyButton title="Добавить" onPress={handleAddTodo} />
       </View>
-      <Btn title="Удалить все дела" onPress={removeTodos} />
-      <Text style={styles.test}>
-        test <Btn title="Тест Кнопка" onPress={handleAddTodo} />
-      </Text>
+      <MyButton title="Удалить все дела" onPress={showConfirmAlert} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   addTodo: {
+    marginTop: 15,
     paddingHorizontal: 15,
   },
   inp: {
@@ -63,15 +69,5 @@ const styles = StyleSheet.create({
   },
   btnAdd: {
     marginBottom: 10,
-  },
-  test: {
-    width: '75%',
-    textAlign: 'center',
-    alignSelf: 'flex-end',
-    backgroundColor: '#ff0',
-    // flex НЕ работает
-    // display: 'flex',
-    // justifyContent: 'flex-end',
-    // alignItems: 'flex-end',
   },
 });

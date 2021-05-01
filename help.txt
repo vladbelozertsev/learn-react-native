@@ -4,6 +4,7 @@
 3) https://www.youtube.com/watch?v=xbfx6lIGRB0 - вертикальный и горизонтальный скрол
 4) https://www.youtube.com/watch?v=CurYICWI0T8 - интерактивная карта на сайт
 5) https://www.youtube.com/watch?v=xyzW59BQwoI - FlatList, lazy loading с индикатором загрузки (спиннером)
+6) https://www.youtube.com/watch?v=xyzW59BQwoI - svg-фильтры
 
 Официальный сайт:
 1) https://reactnative.dev/docs/accessibilityinfo - об API React Native (в т.ч. управление: alert, анимации и прочее)
@@ -24,9 +25,13 @@
 12) https://stackoverflow.com/questions/38735017/react-native-how-to-lazyload-image - lazy loading изображений
 13) https://stackoverflow.com/questions/55823401/how-to-pass-props-in-the-component-to-flatlist-renderitem - проброска пропсов в renderItem от FlatList
 14) https://github.com/coldiary/react-image-mapper - интерактивные изображения
+15) https://cheesecakelabs.com/blog/efficient-way-structure-react-native-projects/ - структура проекта React Native
+16) https://stackoverflow.com/questions/55470328/how-to-simplify-check-if-property-exist-in-typescript - ts exist
+17) https://stackoverflow.com/questions/62382324/react-typesciprt-this-jsx-tags-children-prop-expects-a-single-child-of-type - TS children array
 
 Заметки:
 #View - аналог div, Text - аналог span. View по умлочанию имеет display: flex. Для Text не может быть применен display: flex.
+Также View растягивает контент по всей его (view) ширине, даже если у родителького контейнера задан flexDirection: row.
 #ScrollView - если элемент не помещается в высоту экрана, нужно использовать ScrollView. При этом все родительские элемента,
   данного элемента также должны быть ScrollView, иначе скролл не будет работать.
 #FlatList - компонент, для рендеринга большого количества айтемов. Т.е. его использовать более предпочтительнее, чем

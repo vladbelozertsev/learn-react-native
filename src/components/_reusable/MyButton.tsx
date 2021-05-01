@@ -6,7 +6,7 @@ interface Props {
   onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
 }
 
-export const Btn = (props: Props) => {
+export const MyButton = (props: Props) => {
   return (
     <View>
       <Button title={props.title} onPress={props.onPress} color="tomato" />
