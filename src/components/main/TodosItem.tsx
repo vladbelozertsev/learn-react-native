@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { MyText } from '../_reusable/MyText';
 
 interface Props {
   item: { id: string; title: string };
@@ -32,7 +33,7 @@ export const TodosItem = (props: Props) => {
       onLongPress={showTodoDeleteAlert}
     >
       <View>
-        <Text style={styles.text}>{props.item.title}</Text>
+        <MyText style={styles.text}>{props.item.title}</MyText>
       </View>
     </TouchableOpacity>
   );

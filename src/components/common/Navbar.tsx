@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Dimensions, StatusBar } from 'react-native';
+import { MyText } from '../_reusable/MyText';
+import { MyTextBold } from '../_reusable/MyTextBold';
 
 interface Props {
   title: string;
@@ -20,6 +22,8 @@ export const Navbar = (props: Props) => {
       <Text style={styles.text}>5 WINDOW_HEIGHT- {WINDOW_HEIGHT}</Text>
       <Text style={styles.text}>6 STATUS_BAR - {STATUS_BAR}</Text>
       <Text style={styles.text}>7 DEVICE_HEIGHT - {DEVICE_HEIGHT} </Text>
+      <MyText style={styles.text}> my text component </MyText>
+      <MyTextBold style={styles.text}>my text component 2</MyTextBold>
     </View>
   );
 };

@@ -1,5 +1,7 @@
 import React from 'react';
-import { FlatList, Text, StyleSheet, SafeAreaView, View, Image } from 'react-native';
+import { FlatList, StyleSheet, SafeAreaView, View, Image } from 'react-native';
+import { MyText } from '../_reusable/MyText';
+import { MyTextBold } from '../_reusable/MyTextBold';
 import { TodosItem } from './TodosItem';
 
 interface Props {
@@ -37,14 +39,14 @@ export const Todos = (props: Props) => {
             style={styles.img}
           />
         </View> */}
-        <Text>Список дел пуст.</Text>
+        <MyText>Список дел пуст.</MyText>
       </View>
     );
   }
 
   return (
     <SafeAreaView style={styles.todos}>
-      <Text style={styles.header}>Мои дела:</Text>
+      <MyTextBold style={styles.header}>Мои дела:</MyTextBold>
       {content}
     </SafeAreaView>
   );

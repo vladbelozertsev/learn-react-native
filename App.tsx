@@ -3,13 +3,21 @@ import { Navbar } from './src/components/common/Navbar';
 import { StyleSheet, View } from 'react-native';
 import { MainScreen } from './src/screens/MainScreen';
 import { TodoScreen } from './src/screens/TodoScreen';
+import { useFonts } from 'expo-font';
 
 type Todos = {
   id: string;
   title: string;
 }[];
 
-export default function () {
+export default function App() {
+  const [loaded] = useFonts({
+    'Roboto-Regular': require('./src/assets/fonts/Roboto-Regular.ttf'),
+    'Roboto-Bold': require('./src/assets/fonts/Roboto-Bold.ttf'),
+    'ComicNeue-Regular': require('./src/assets/fonts/ComicNeue-Regular.ttf'),
+    'ComicNeue-Bold': require('./src/assets/fonts/ComicNeue-Bold.ttf'),
+  });
+
   const [todos, setTodos] = useState<Todos>([
     { id: '1', title: '1 one' },
     { id: '2', title: '2 two' },
@@ -59,6 +67,9 @@ export default function () {
   useEffect(() => {
     console.log(todos);
   }, [todos]);
+
+  // возвращаеи null, ТОЛЬКО ПОСЛЕ ВЫПОЛНЕНИЯ ВСЕХ ХУКОВ (useState, useEffect, и т.д.)
+  if (!loaded) return null;
 
   return (
     <View style={styles.app}>

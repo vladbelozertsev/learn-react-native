@@ -6,8 +6,8 @@ interface Props {
   style?: object;
 }
 
-export const AppCard = ({ children, style }: Props) => {
-  return <View style={{ ...styles.appCard, ...style }}>{children}</View>;
+export const MyCard = (props: Props) => {
+  return <View style={{ ...styles.appCard, ...props.style }}>{props.children}</View>;
 };
 
 const styles = StyleSheet.create({

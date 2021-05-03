@@ -28,6 +28,13 @@
 15) https://cheesecakelabs.com/blog/efficient-way-structure-react-native-projects/ - структура проекта React Native
 16) https://stackoverflow.com/questions/55470328/how-to-simplify-check-if-property-exist-in-typescript - ts exist
 17) https://stackoverflow.com/questions/62382324/react-typesciprt-this-jsx-tags-children-prop-expects-a-single-child-of-type - TS children array
+18) https://stackoverflow.com/questions/41825276/how-to-add-custom-font-in-react-native-android - подключение шрифтов
+19) https://stackoverflow.com/questions/52880758/react-native-unrecognized-font-family-not-fixing/52916277#52916277 - шрифты и папка assets
+20) https://docs.expo.io/versions/latest/sdk/font/ - expo шрифты 1
+21) https://docs.expo.io/guides/using-custom-fonts/ - expo шрифты 2
+22) https://stackoverflow.com/questions/35255645/how-to-set-default-font-family-in-react-native - дефолтный шрифт для всего документа
+23) https://stackoverflow.com/questions/38889487/react-native-is-not-recognized-as-an-internal-or-external-command-operable-pr - установка react-native
+24) https://stackoverflow.com/questions/60604651/text-in-jsx-has-the-type-string-but-the-expected-type-of-children-is-strin - ошибка TS children
 
 Заметки:
 #View - аналог div, Text - аналог span. View по умлочанию имеет display: flex. Для Text не может быть применен display: flex.

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Button, Alert } from 'react-native';
+import { View, StyleSheet, Button, Alert } from 'react-native';
 import { EditTodoModal } from '../components/todo/EditTodoModal';
-import { AppCard } from '../components/_layouts/AppCard';
+import { MyCard } from '../components/_reusable/MyCard';
+import { MyText } from '../components/_reusable/MyText';
 
 interface Props {
   removeTodo: (id: string) => void;
@@ -48,10 +49,10 @@ export const TodoScreen = (props: Props) => {
 
   return (
     <View style={styles.todoScreen}>
-      <AppCard style={styles.card}>
-        <Text style={styles.text}>Выбрано: {props.selectedTodo?.title}</Text>
+      <MyCard style={styles.card}>
+        <MyText style={styles.text}>Выбрано: {props.selectedTodo?.title}</MyText>
         <Button title="Редактировать" onPress={openEditTodoModal} />
-      </AppCard>
+      </MyCard>
       <View style={styles.buttonsView}>
         <View style={styles.button}>
           <Button color={'#bbb'} title={'Назад'} onPress={goBack} />
