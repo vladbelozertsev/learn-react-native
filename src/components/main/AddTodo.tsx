@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { StyleSheet, TextInput, View, Alert } from 'react-native';
 import { globalStyles } from '../_styles/globalStyles';
 import { MyButton } from '../_reusable/MyButton';
+import { Entypo } from '@expo/vector-icons'; // НЕ требует установки, ЕСЛИ проект был создан как expo
 
 interface Props {
   addTodo: (title: string) => void;
@@ -49,8 +50,10 @@ export const AddTodo = (props: Props) => {
         autoCorrect={false}
         autoCapitalize="words"
       />
-      <View style={styles.btnAdd}>
-        <MyButton title="Добавить" onPress={handleAddTodo} />
+      <View style={styles.addBtnView}>
+        <Entypo.Button name="add-to-list" size={24} style={styles.addBtn} onPress={handleAddTodo}>
+          ДОБАВИТЬ
+        </Entypo.Button>
       </View>
       <MyButton title="Удалить все дела" onPress={showConfirmAlert} />
     </View>
@@ -67,7 +70,12 @@ const styles = StyleSheet.create({
     borderColor: 'tomato',
     marginBottom: 10,
   },
-  btnAdd: {
+  addBtnView: {
     marginBottom: 10,
+  },
+  addBtn: {
+    justifyContent: 'center',
+    backgroundColor: 'tomato',
+    fontFamily: 'ComicNeue-Regular',
   },
 });

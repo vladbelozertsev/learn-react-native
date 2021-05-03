@@ -35,6 +35,9 @@
 22) https://stackoverflow.com/questions/35255645/how-to-set-default-font-family-in-react-native - дефолтный шрифт для всего документа
 23) https://stackoverflow.com/questions/38889487/react-native-is-not-recognized-as-an-internal-or-external-command-operable-pr - установка react-native
 24) https://stackoverflow.com/questions/60604651/text-in-jsx-has-the-type-string-but-the-expected-type-of-children-is-strin - ошибка TS children
+25) https://stackoverflow.com/questions/61824681/importing-custom-icons-into-react-native-0-62 - custom icons
+25) https://www.orangejellyfish.com/blog/custom-icon-fonts-with-react-native/ - custom icons
+25) https://medium.com/bam-tech/add-custom-icons-to-your-react-native-application-f039c244386c - custom icons
 
 Заметки:
 #View - аналог div, Text - аналог span. View по умлочанию имеет display: flex. Для Text не может быть применен display: flex.
