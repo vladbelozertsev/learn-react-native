@@ -30,15 +30,6 @@ export const Todos = (props: Props) => {
         <View style={styles.imgView}>
           <Image source={require('../../assets/images/list.png')} style={styles.img} />
         </View>
-        {/* Пример вставки изображения при помощи URL-ссылки: */}
-        {/* <View style={styles.imgView}>
-          <Image
-            source={{
-              uri: 'https://www.vhv.rs/dpng/d/524-5245981_react-js-logo-png-transparent-png-download.png',
-            }}
-            style={styles.img}
-          />
-        </View> */}
         <MyText>Список дел пуст.</MyText>
       </View>
     );

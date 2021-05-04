@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Button, Alert } from 'react-native';
+import { View, StyleSheet, Alert } from 'react-native';
 import { EditTodoModal } from '../components/todo/EditTodoModal';
+import { MyButton } from '../components/_reusable/MyButton';
 import { MyCard } from '../components/_reusable/MyCard';
 import { MyText } from '../components/_reusable/MyText';
+import { FontAwesome, AntDesign } from '@expo/vector-icons';
 
 interface Props {
   removeTodo: (id: string) => void;
@@ -49,16 +51,23 @@ export const TodoScreen = (props: Props) => {
 
   return (
     <View style={styles.todoScreen}>
-      <MyCard style={styles.card}>
+      <MyCard style={styles.myCard}>
         <MyText style={styles.text}>Выбрано: {props.selectedTodo?.title}</MyText>
-        <Button title="Редактировать" onPress={openEditTodoModal} />
+
+        <MyButton onPress={openEditTodoModal} styleWrapper={styles.editBtnWrapper}>
+          <FontAwesome name={'edit'} size={22} />
+        </MyButton>
       </MyCard>
       <View style={styles.buttonsView}>
         <View style={styles.button}>
-          <Button color={'#bbb'} title={'Назад'} onPress={goBack} />
+          <MyButton onPress={goBack}>
+            <AntDesign name="back" size={20} color="#fff" />
+          </MyButton>
         </View>
         <View style={styles.button}>
-          <Button title={'Удалить'} color={'tomato'} onPress={showDeleteTodoAlert} />
+          <MyButton styleWrapper={styles.deleteBtnWrapper} onPress={showDeleteTodoAlert}>
+            <AntDesign name="delete" size={20} />
+          </MyButton>
         </View>
       </View>
       <EditTodoModal
@@ -75,9 +84,12 @@ const styles = StyleSheet.create({
   todoScreen: {
     margin: 15,
   },
+  myCard: {
+    marginBottom: 20,
+  },
   text: {
-    marginBottom: 15,
     fontSize: 20,
+    height: 20,
   },
   buttonsView: {
     flexDirection: 'row',
@@ -86,7 +98,10 @@ const styles = StyleSheet.create({
   button: {
     width: '45%',
   },
-  card: {
-    marginBottom: 20,
+  deleteBtnWrapper: {
+    backgroundColor: 'tomato',
+  },
+  editBtnWrapper: {
+    backgroundColor: 'skyblue',
   },
 });

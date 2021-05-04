@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Button, Modal, StyleSheet, TextInput, Alert } from 'react-native';
+import { MyButton } from '../_reusable/MyButton';
 import { globalStyles } from '../_styles/globalStyles';
 
 interface Props {
@@ -36,10 +37,12 @@ export const EditTodoModal = (props: Props) => {
           />
           <View style={styles.btnsContainerView}>
             <View style={styles.btnView}>
-              <Button title={'Отмена'} onPress={handleCancel} />
+              <MyButton onPress={handleCancel}>Отмена</MyButton>
             </View>
             <View style={styles.btnView}>
-              <Button title={'Сохранить'} onPress={handleSave} />
+              <MyButton onPress={handleSave} styleWrapper={styles.btnSaveWrapper}>
+                Сохранить
+              </MyButton>
             </View>
           </View>
         </View>
@@ -77,5 +80,8 @@ const styles = StyleSheet.create({
   },
   btnView: {
     width: '45%',
+  },
+  btnSaveWrapper: {
+    backgroundColor: 'tomato',
   },
 });

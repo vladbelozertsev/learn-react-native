@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -12,16 +12,16 @@ export const MyCard = (props: Props) => {
 
 const styles = StyleSheet.create({
   appCard: {
-    borderWidth: 2,
-    borderColor: 'black',
-    borderStyle: 'solid',
-    padding: 20,
+    padding: 15,
     shadowColor: '#000',
     shadowRadius: 2,
     shadowOpacity: 0.3,
     shadowOffset: { width: 2, height: 2 },
     backgroundColor: '#fff',
     borderRadius: 5,
-    elevation: 8, // тень для андроида
+    elevation: 10, // тень для андроида
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

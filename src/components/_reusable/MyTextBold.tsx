@@ -3,7 +3,7 @@ import { Text, StyleSheet } from 'react-native';
 
 interface Props {
   style?: object;
-  children: string;
+  children: React.ReactNode;
 }
 
 export const MyTextBold = (props: Props) => {

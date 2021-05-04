@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { StyleSheet, TextInput, View, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, Keyboard, StyleSheet, TextInput, View } from 'react-native';
 import { globalStyles } from '../_styles/globalStyles';
 import { MyButton } from '../_reusable/MyButton';
 import { Entypo } from '@expo/vector-icons'; // НЕ требует установки, ЕСЛИ проект был создан как expo
@@ -10,7 +10,6 @@ interface Props {
 }
 
 export const AddTodo = (props: Props) => {
-  const inpRef = useRef<TextInput>(null);
   const [text, setText] = useState('123');
 
   const handleAddTodo = () => {
@@ -20,7 +19,7 @@ export const AddTodo = (props: Props) => {
     }
     props.addTodo(text);
     setText('');
-    inpRef?.current?.focus();
+    Keyboard.dismiss();
   };
 
   const showConfirmAlert = () =>
@@ -45,7 +44,6 @@ export const AddTodo = (props: Props) => {
         defaultValue={text}
         onChangeText={setText}
         placeholder="my input"
-        ref={inpRef}
         style={styles.inp}
         autoCorrect={false}
         autoCapitalize="words"
@@ -55,7 +53,7 @@ export const AddTodo = (props: Props) => {
           ДОБАВИТЬ
         </Entypo.Button>
       </View>
-      <MyButton title="Удалить все дела" onPress={showConfirmAlert} />
+      <MyButton onPress={showConfirmAlert}>Удалить все дела</MyButton>
     </View>
   );
 };
