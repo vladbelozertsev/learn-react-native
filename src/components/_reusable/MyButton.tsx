@@ -25,7 +25,14 @@ export const MyButton = (props: Props) => {
   );
 
   if (Platform.OS === 'android') {
-    return <TouchableNativeFeedback onPress={props.onPress}>{Content}</TouchableNativeFeedback>;
+    return (
+      <TouchableNativeFeedback
+        onPress={props.onPress}
+        background={TouchableNativeFeedback.Ripple('rgba(0,0,0,.2)', false)}
+      >
+        {Content}
+      </TouchableNativeFeedback>
+    );
   }
 
   return (

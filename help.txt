@@ -39,6 +39,9 @@
 25) https://www.orangejellyfish.com/blog/custom-icon-fonts-with-react-native/ - custom icons
 25) https://medium.com/bam-tech/add-custom-icons-to-your-react-native-application-f039c244386c - custom icons
 26) https://github.com/facebook/react/issues/13445 - component vs element
+27) https://stackoverflow.com/questions/34430950/how-to-use-touchablenativefeedback-in-react-native-android - TouchableNativeFeedback
+28) https://dev.to/marcostreng/how-to-really-remove-eventlisteners-in-react-3och - remove event listener
+29) https://stackoverflow.com/questions/55360736/how-do-i-window-removeeventlistener-using-react-useeffect - действия при onDestroy в useEffect
 
 Заметки:
 #View - аналог div, Text - аналог span. View по умлочанию имеет display: flex. Для Text не может быть применен display: flex.
@@ -57,3 +60,5 @@
 
 *Изучить - поведение блоков - View/Text (ратягивание/сжатие) внутри View контейнера. При этом изменять justifyContent,
 alignItems, и т.д.
+*Протестировать работу TouchableNativeFeedback (не рабоает без заданного атрибута background)
+*SafeAreaView - протестировать

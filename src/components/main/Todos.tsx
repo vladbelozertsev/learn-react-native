@@ -1,5 +1,5 @@
-import React from 'react';
-import { FlatList, StyleSheet, SafeAreaView, View, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { FlatList, StyleSheet, SafeAreaView, View, Image, Dimensions } from 'react-native';
 import { MyText } from '../_reusable/MyText';
 import { MyTextBold } from '../_reusable/MyTextBold';
 import { TodosItem } from './TodosItem';
@@ -14,6 +14,19 @@ interface Props {
 }
 
 export const Todos = (props: Props) => {
+  const [deviceWidth, setDeviceWidth] = useState(Dimensions.get('window').width - 30);
+
+  useEffect(() => {
+    const recalcDeviceWidth = () => {
+      const newWidth = Dimensions.get('window').width - 30;
+      setDeviceWidth(newWidth);
+    };
+    Dimensions.addEventListener('change', recalcDeviceWidth);
+    return () => {
+      Dimensions.removeEventListener('change', recalcDeviceWidth);
+    };
+  }, []);
+
   let content = (
     <FlatList
       data={props.todos}
@@ -36,7 +49,7 @@ export const Todos = (props: Props) => {
   }
 
   return (
-    <SafeAreaView style={styles.todos}>
+    <SafeAreaView style={{ ...styles.todos, width: deviceWidth }}>
       <MyTextBold style={styles.header}>Мои дела:</MyTextBold>
       {content}
     </SafeAreaView>

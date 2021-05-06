@@ -17,7 +17,7 @@ interface Props {
 export const MainScreen = ({ todos, addTodo, removeTodo, removeTodos, setSelectedTodoId }: Props) => {
   return (
     <View style={styles.mainScreen}>
-      <AddTodo addTodo={addTodo} removeTodos={removeTodos} />
+      {/* <AddTodo addTodo={addTodo} removeTodos={removeTodos} /> */}
       <Todos todos={todos} removeTodo={removeTodo} setSelectedTodoId={setSelectedTodoId} />
     </View>
   );
