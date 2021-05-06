@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Platform } from 'react-native';
 import { Dimensions, StatusBar } from 'react-native';
 import { MyText } from '../_reusable/MyText';
 import { MyTextBold } from '../_reusable/MyTextBold';
@@ -17,7 +17,15 @@ export const Navbar = (props: Props) => {
   console.log(WINDOW_HEIGHT);
 
   return (
-    <View style={styles.navbar}>
+    <View
+      style={{
+        ...styles.navbar,
+        ...Platform.select({
+          android: styles.navbarAndroid,
+          ios: styles.navbarIos,
+        }),
+      }}
+    >
       <MyTextBold style={styles.header}>{props.title}</MyTextBold>
       <MyText style={styles.text}>5 WINDOW_HEIGHT- {WINDOW_HEIGHT}</MyText>
       <MyText style={styles.text}>6 STATUS_BAR - {STATUS_BAR}</MyText>
@@ -29,10 +37,19 @@ export const Navbar = (props: Props) => {
 const styles = StyleSheet.create({
   navbar: {
     alignItems: 'center',
-    backgroundColor: '#80b0e8',
     justifyContent: 'center',
     paddingBottom: 10,
     paddingTop: (StatusBar.currentHeight || 24) + 10,
+    borderLeftColor: Platform.OS === 'android' ? 'orange' : 'tomato',
+    borderLeftWidth: 5,
+  },
+  navbarAndroid: {
+    borderBottomColor: '#4481c7',
+    borderBottomWidth: 5,
+    backgroundColor: '#80b0e8',
+  },
+  navbarIos: {
+    backgroundColor: '#77a2d4',
   },
   header: {
     fontSize: 22,

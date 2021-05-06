@@ -1,5 +1,13 @@
 import React from 'react';
-import { TouchableOpacity, View, NativeSyntheticEvent, NativeTouchEvent, StyleSheet } from 'react-native';
+import {
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  Platform,
+  View,
+  NativeSyntheticEvent,
+  NativeTouchEvent,
+  StyleSheet,
+} from 'react-native';
 import { MyTextBold } from './MyTextBold';
 
 interface Props {
@@ -10,11 +18,19 @@ interface Props {
 }
 
 export const MyButton = (props: Props) => {
+  const Content = (
+    <View style={{ ...styles.btnViewWrapper, ...props.styleWrapper }}>
+      <MyTextBold style={{ ...styles.text, ...props.styleText }}>{props.children}</MyTextBold>
+    </View>
+  );
+
+  if (Platform.OS === 'android') {
+    return <TouchableNativeFeedback onPress={props.onPress}>{Content}</TouchableNativeFeedback>;
+  }
+
   return (
     <TouchableOpacity onPress={props.onPress} activeOpacity={0.7}>
-      <View style={{ ...styles.btnViewWrapper, ...props.styleWrapper }}>
-        <MyTextBold style={{ ...styles.text, ...props.styleText }}>{props.children}</MyTextBold>
-      </View>
+      {Content}
     </TouchableOpacity>
   );
 };

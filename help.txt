@@ -38,6 +38,7 @@
 25) https://stackoverflow.com/questions/61824681/importing-custom-icons-into-react-native-0-62 - custom icons
 25) https://www.orangejellyfish.com/blog/custom-icon-fonts-with-react-native/ - custom icons
 25) https://medium.com/bam-tech/add-custom-icons-to-your-react-native-application-f039c244386c - custom icons
+26) https://github.com/facebook/react/issues/13445 - component vs element
 
 Заметки:
 #View - аналог div, Text - аналог span. View по умлочанию имеет display: flex. Для Text не может быть применен display: flex.
