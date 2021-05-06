@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Alert } from 'react-native';
+import { View, StyleSheet, Alert, Dimensions } from 'react-native';
 import { EditTodoModal } from '../components/todo/EditTodoModal';
 import { MyButton } from '../components/_reusable/MyButton';
 import { MyCard } from '../components/_reusable/MyCard';
@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   button: {
-    width: '45%',
+    width: (Dimensions.get('window').width * 0.9 - 30) / 2, // 30 - размер todoScreen:margin * 2
+    // width: '45%', // эквивалентно выражению сверху, т.е. (Dimensions.get('window').width * 0.9 - 30) / 2
   },
   deleteBtnWrapper: {
     backgroundColor: 'tomato',
