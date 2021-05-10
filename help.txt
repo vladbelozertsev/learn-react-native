@@ -42,6 +42,8 @@
 27) https://stackoverflow.com/questions/34430950/how-to-use-touchablenativefeedback-in-react-native-android - TouchableNativeFeedback
 28) https://dev.to/marcostreng/how-to-really-remove-eventlisteners-in-react-3och - remove event listener
 29) https://stackoverflow.com/questions/55360736/how-do-i-window-removeeventlistener-using-react-useeffect - действия при onDestroy в useEffect
+30) https://stackoverflow.com/questions/61333188/react-typescript-avoid-context-default-value - TS и context default value
+31) https://dev.to/hellomuthu23/how-to-use-usereducer-and-usecontext-hooks-with-typescript-in-react-14d1 - структура context
 
 Заметки:
 #View - аналог div, Text - аналог span. View по умлочанию имеет display: flex. Для Text не может быть применен display: flex.
