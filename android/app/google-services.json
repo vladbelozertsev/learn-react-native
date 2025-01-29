@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "117855271031",
+    "project_id": "appfortests-c5af3",
+    "storage_bucket": "appfortests-c5af3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117855271031:android:cbd5387f32c4ee5cb86e72",
+        "android_client_info": {
+          "package_name": "com.appfortests"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOSc-9TZeaerDoFXcCGXEquu1JHbt1lsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,7 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".", // https://github.com/react-native-community/react-native-template-typescript/issues/23
+    "types": ["node"] // https://stackoverflow.com/questions/45445976/tsc-cannot-find-name-of-global-object
+  }
+}
