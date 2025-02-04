@@ -1,29 +1,35 @@
-import './src/helpers/global';
-import './src/translation';
+import './src/__libs__/utils/global';
+import './src/i18n';
 import 'react-native-gesture-handler';
-import React from 'react';
-import { App } from './src/index';
+import React, { useMemo } from 'react';
+import { App } from 'navigation/index';
 import { AppRegistry } from 'react-native';
-import { InMemoryCache, ApolloClient, ApolloProvider } from '@apollo/client';
-import { MyToast } from './src/components/my-toast';
+import { ApolloClient, ApolloProvider, from } from '@apollo/client';
+import { MyToast } from '__libs__/components/my-toast';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { cache, errorLink, httpLink } from '__libs__/apollo';
 import { name as appName } from './app.json';
-
-const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql',
-  cache: new InMemoryCache(),
-});
+import { useLogout } from '__libs__/hooks/use-logout';
 
 const AppProviders = () => {
+  const logout = useLogout();
+
+  const client = useMemo(() => {
+    return new ApolloClient({
+      cache: cache,
+      link: from([errorLink(logout), httpLink]),
+    });
+  }, [logout]);
+
   return (
     <SafeAreaProvider>
-      <ApolloProvider client={client}>
-        <NavigationContainer>
+      <NavigationContainer>
+        <ApolloProvider client={client}>
           <App />
           <MyToast />
-        </NavigationContainer>
-      </ApolloProvider>
+        </ApolloProvider>
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 };
