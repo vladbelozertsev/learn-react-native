@@ -1,15 +1,19 @@
 {
   "favorites.resources": [
     {
-      "filePath": "src/__i18n__",
+      "filePath": "src/app",
       "group": "Default"
     },
     {
-      "filePath": "src/__libs__",
+      "filePath": "src/i18n",
       "group": "Default"
     },
     {
-      "filePath": "src/__nav__",
+      "filePath": "src/libs",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/Ω",
       "group": "Default"
     }
   ]

@@ -11,7 +11,7 @@ const path = require('path');
 const config = {
   resolver: {
     extraNodeModules: {
-      src: path.resolve(__dirname, '/src'),
+      src: path.resolve(__dirname, 'src'),
     },
   },
 };

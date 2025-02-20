@@ -56,3 +56,20 @@ export const getHtmlTemplate = (html: string) => {
             </body>
           </html>`;
 };
+
+export const wset = (prams: { [key: string]: any }) => {
+  const arr = Object.entries(prams);
+  const entries = arr.map(el => [el[0], { set: el[1] }]);
+  return Object.fromEntries(entries);
+};
+
+export class ReactNativeFile {
+  uri: string;
+  name: string;
+  type: string;
+  constructor({ uri, name, type }: { uri: string; name: string; type: string }) {
+    this.uri = uri;
+    this.name = name;
+    this.type = type;
+  }
+}

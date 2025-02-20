@@ -2,20 +2,19 @@ import { GET_CARS } from 'src/Ω/car-list/api';
 import { gql } from 'src/libs/apollo';
 import { useMutation } from '@apollo/client';
 
-export const CREATE_CAR = gql(`
-  mutation CreateCar($input: CarCreateInput!) {
-    createCar(input: $input) {
+export const SEND_IMG = gql(`
+  mutation AddCarImg($input: FileInput!) {
+    addCarImg(input: $input) {
       id
-      createdAt
     }
   }
 `);
 
-export const useCreateCar = () => {
-  const [createCar, data] = useMutation(CREATE_CAR, {
+export const useAddImg = () => {
+  const [sendImage, data] = useMutation(SEND_IMG, {
     refetchQueries: [GET_CARS],
   });
-  return { createCar, ...data };
+  return { sendImage, ...data };
 };
 
 /**

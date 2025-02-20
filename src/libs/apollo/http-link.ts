@@ -3,9 +3,17 @@ import { HttpLink } from '@apollo/client';
 
 export const httpLink = new HttpLink({
   uri: 'http://10.0.2.2:3000/graphql',
+  fetchOptions: {
+    reactNative: { textStreaming: true },
+  },
   fetch: (uri, options) => {
-    const lang = `lang=${i18n.language}`;
-    return fetch(`${uri}?${lang}`, options);
+    return fetch(uri, {
+      ...options,
+      headers: {
+        ...options?.headers,
+        // lang: 'ru', // i18n.language,
+      },
+    });
   },
 });
 

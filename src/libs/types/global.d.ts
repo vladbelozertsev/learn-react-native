@@ -1,8 +1,11 @@
 import { AxiosStatic } from 'axios';
 import { ControllerRenderProps, FieldValues, Path } from 'react-hook-form';
 import { useAtom as useJotaiAtom } from 'jotai';
+import * as apollosd from '@types/apollo-upload-client';
 
 export const thisIsAModule = true;
+
+declare module 'apollo-upload-client' {}
 
 declare global {
   var CLR_APP: string;

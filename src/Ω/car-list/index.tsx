@@ -7,6 +7,8 @@ import { TouchableOpacity } from 'react-native';
 import { useGetCars } from './api';
 import { useGo } from 'src/libs/hooks/use-navigation';
 
+let i = 0;
+
 export const CarList: Screen<'CarList'> = () => {
   const query = useGetCars({ take: 5 });
 
@@ -23,7 +25,8 @@ export const CarList: Screen<'CarList'> = () => {
 
 const Item: FC<{ item: { id: number; brand: string }; index: number }> = ({ item }) => {
   const goCar = useGo('CarItem', { id: item.id });
-  console.log(item);
+  i += 1;
+  console.log(i);
   return (
     <TouchableOpacity key={item.id} onPress={goCar} style={styles.itemBtn}>
       <MyText $v={`${item.id} ${item.brand}`} />

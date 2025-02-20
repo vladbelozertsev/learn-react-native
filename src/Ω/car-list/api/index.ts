@@ -1,19 +1,18 @@
 import { useQuery } from '@apollo/client';
 import { gql } from 'src/libs/apollo';
-import { GetCarsInput } from 'src/libs/types/api';
 
 export const GET_CARS = gql(`
-  query GetCars($input: GetCarsInput) {
-    cars(input: $input) {
+  query GetCars($take: Int $skip: Int) {
+    cars(skip: $skip take: $take) {
       id
       brand
     }
   }
 `);
 
-export const useGetCars = (input?: GetCarsInput) => {
+export const useGetCars = ({ skip, take }: { skip?: number; take?: number }) => {
   return useQuery(GET_CARS, {
-    variables: { input },
+    variables: { skip, take },
     notifyOnNetworkStatusChange: true,
   });
 };

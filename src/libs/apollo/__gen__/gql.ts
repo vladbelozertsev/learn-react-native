@@ -13,10 +13,21 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
-const documents = {
-    "\n  mutation CreateCar($input: CreateCarInput!) {\n    createCar(input: $input) {\n      id\n      createdAt\n    }\n  }\n": types.CreateCarDocument,
-    "\n  query GetCar($input: GetCarInput!) {\n    car(input: $input) {\n      brand\n      color\n      createdAt\n      id\n      model\n      price\n      updatedAt\n    }\n  }\n": types.GetCarDocument,
-    "\n  query GetCars($input: GetCarsInput) {\n    cars(input: $input) {\n      id\n      brand\n    }\n  }\n": types.GetCarsDocument,
+type Documents = {
+    "\n  mutation CreateCar($input: CarCreateInput!) {\n    createCar(input: $input) {\n      id\n      createdAt\n    }\n  }\n": typeof types.CreateCarDocument,
+    "\n  query GetCar($where: CarWhereUniqueInput!) {\n    car(where: $where) {\n      brand\n      color\n      createdAt\n      id\n      model\n      price\n      updatedAt\n    }\n  }\n": typeof types.GetCarDocument,
+    "\n  query GetCars($take: Int $skip: Int) {\n    cars(skip: $skip take: $take) {\n      id\n      brand\n    }\n  }\n": typeof types.GetCarsDocument,
+    "\n  mutation UpdateCar($data: CarUpdateInput!, $where: CarWhereUniqueInput!) {\n    updateCar(data: $data, where: $where) {\n      id\n      createdAt\n    }\n  }\n": typeof types.UpdateCarDocument,
+    "\n  mutation AddCarImg($input: FileInput!) {\n    addCarImg(input: $input) {\n      id\n    }\n  }\n": typeof types.AddCarImgDocument,
+    "\n  mutation CreateUser($input: CreateUserInput!) {\n    createUser(input: $input) {\n      id\n    }\n  }\n": typeof types.CreateUserDocument,
+};
+const documents: Documents = {
+    "\n  mutation CreateCar($input: CarCreateInput!) {\n    createCar(input: $input) {\n      id\n      createdAt\n    }\n  }\n": types.CreateCarDocument,
+    "\n  query GetCar($where: CarWhereUniqueInput!) {\n    car(where: $where) {\n      brand\n      color\n      createdAt\n      id\n      model\n      price\n      updatedAt\n    }\n  }\n": types.GetCarDocument,
+    "\n  query GetCars($take: Int $skip: Int) {\n    cars(skip: $skip take: $take) {\n      id\n      brand\n    }\n  }\n": types.GetCarsDocument,
+    "\n  mutation UpdateCar($data: CarUpdateInput!, $where: CarWhereUniqueInput!) {\n    updateCar(data: $data, where: $where) {\n      id\n      createdAt\n    }\n  }\n": types.UpdateCarDocument,
+    "\n  mutation AddCarImg($input: FileInput!) {\n    addCarImg(input: $input) {\n      id\n    }\n  }\n": types.AddCarImgDocument,
+    "\n  mutation CreateUser($input: CreateUserInput!) {\n    createUser(input: $input) {\n      id\n    }\n  }\n": types.CreateUserDocument,
 };
 
 /**
@@ -36,15 +47,27 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  mutation CreateCar($input: CreateCarInput!) {\n    createCar(input: $input) {\n      id\n      createdAt\n    }\n  }\n"): (typeof documents)["\n  mutation CreateCar($input: CreateCarInput!) {\n    createCar(input: $input) {\n      id\n      createdAt\n    }\n  }\n"];
+export function gql(source: "\n  mutation CreateCar($input: CarCreateInput!) {\n    createCar(input: $input) {\n      id\n      createdAt\n    }\n  }\n"): (typeof documents)["\n  mutation CreateCar($input: CarCreateInput!) {\n    createCar(input: $input) {\n      id\n      createdAt\n    }\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query GetCar($input: GetCarInput!) {\n    car(input: $input) {\n      brand\n      color\n      createdAt\n      id\n      model\n      price\n      updatedAt\n    }\n  }\n"): (typeof documents)["\n  query GetCar($input: GetCarInput!) {\n    car(input: $input) {\n      brand\n      color\n      createdAt\n      id\n      model\n      price\n      updatedAt\n    }\n  }\n"];
+export function gql(source: "\n  query GetCar($where: CarWhereUniqueInput!) {\n    car(where: $where) {\n      brand\n      color\n      createdAt\n      id\n      model\n      price\n      updatedAt\n    }\n  }\n"): (typeof documents)["\n  query GetCar($where: CarWhereUniqueInput!) {\n    car(where: $where) {\n      brand\n      color\n      createdAt\n      id\n      model\n      price\n      updatedAt\n    }\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query GetCars($input: GetCarsInput) {\n    cars(input: $input) {\n      id\n      brand\n    }\n  }\n"): (typeof documents)["\n  query GetCars($input: GetCarsInput) {\n    cars(input: $input) {\n      id\n      brand\n    }\n  }\n"];
+export function gql(source: "\n  query GetCars($take: Int $skip: Int) {\n    cars(skip: $skip take: $take) {\n      id\n      brand\n    }\n  }\n"): (typeof documents)["\n  query GetCars($take: Int $skip: Int) {\n    cars(skip: $skip take: $take) {\n      id\n      brand\n    }\n  }\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  mutation UpdateCar($data: CarUpdateInput!, $where: CarWhereUniqueInput!) {\n    updateCar(data: $data, where: $where) {\n      id\n      createdAt\n    }\n  }\n"): (typeof documents)["\n  mutation UpdateCar($data: CarUpdateInput!, $where: CarWhereUniqueInput!) {\n    updateCar(data: $data, where: $where) {\n      id\n      createdAt\n    }\n  }\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  mutation AddCarImg($input: FileInput!) {\n    addCarImg(input: $input) {\n      id\n    }\n  }\n"): (typeof documents)["\n  mutation AddCarImg($input: FileInput!) {\n    addCarImg(input: $input) {\n      id\n    }\n  }\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  mutation CreateUser($input: CreateUserInput!) {\n    createUser(input: $input) {\n      id\n    }\n  }\n"): (typeof documents)["\n  mutation CreateUser($input: CreateUserInput!) {\n    createUser(input: $input) {\n      id\n    }\n  }\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};

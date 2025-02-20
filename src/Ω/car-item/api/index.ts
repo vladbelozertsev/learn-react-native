@@ -1,10 +1,10 @@
 import { useQuery } from '@apollo/client';
 import { gql } from 'src/libs/apollo';
-import { GetCarInput } from 'src/libs/types/api';
+import { CarWhereUniqueInput } from 'src/libs/types/api';
 
 export const GET_CAR = gql(`
-  query GetCar($input: GetCarInput!) {
-    car(input: $input) {
+  query GetCar($where: CarWhereUniqueInput!) {
+    car(where: $where) {
       brand
       color
       createdAt
@@ -16,6 +16,6 @@ export const GET_CAR = gql(`
   }
 `);
 
-export const useGetCar = (input: GetCarInput) => {
-  return useQuery(GET_CAR, { variables: { input } });
+export const useGetCar = (where: CarWhereUniqueInput) => {
+  return useQuery(GET_CAR, { variables: { where } });
 };
