@@ -17,7 +17,7 @@ const config: CodegenConfig = {
   },
   ignoreNoDocuments: true,
   generates: {
-    './src/libs/apollo/__gen__/': {
+    './src/libs/apollo/_gen_/': {
       preset: 'client',
       plugins: [{ add: { content: RNUpload } }],
       presetConfig: {

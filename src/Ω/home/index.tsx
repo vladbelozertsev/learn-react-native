@@ -6,8 +6,9 @@ import { TouchableOpacity } from 'react-native';
 import { withOpen } from 'src/libs/hocs/with-open';
 import { AddFileModal } from 'src/libs/components/add-file-modal';
 import { DocumentPickerResponse } from 'react-native-document-picker';
-import { useAddImg } from './api/asd';
-import { ReactNativeFile } from 'src/libs/utils/helpers';
+import { useAddImg } from './api/send-img';
+import { RNFile } from 'src/libs/utils/helpers';
+import { useAddImgs } from './api/send-imgs';
 
 export const Home: Screen<'Home'> = withOpen(props => {
   const [imgs, setImgs] = useState<DocumentPickerResponse[]>([]);
@@ -16,19 +17,44 @@ export const Home: Screen<'Home'> = withOpen(props => {
   const goCarList = () => nav('CarList');
   const goCarCreate = () => nav('CarCreate');
 
-  const asdasd = useAddImg();
+  const addImg = useAddImg();
+  const addImgs = useAddImgs();
 
-  const onPress = () => {
+  const sendImage = () => {
     console.log('onPress');
 
-    const file = new ReactNativeFile({
+    const file = new RNFile({
       uri: imgs[0].uri,
       name: imgs[0].name || '',
       type: imgs[0].type || '',
     });
 
-    asdasd.sendImage({
+    addImg.sendImage({
       variables: { input: { file } },
+      onCompleted(data, clientOptions) {
+        console.log(data);
+        console.log(clientOptions);
+      },
+      onError: err => {
+        console.log(JSON.stringify(err, null, 2));
+        console.error(err);
+      },
+    });
+  };
+
+  const sendImages = () => {
+    console.log('onPress');
+
+    const files = imgs.map(img => {
+      return new RNFile({
+        uri: img.uri,
+        name: img.name || '',
+        type: img.type || '',
+      });
+    });
+
+    addImgs.sendImage({
+      variables: { input: { files } },
       onCompleted(data, clientOptions) {
         console.log(data);
         console.log(clientOptions);
@@ -56,8 +82,11 @@ export const Home: Screen<'Home'> = withOpen(props => {
       <TouchableOpacity>
         <MyText $v="Get Image" onPress={props.show} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity onPress={sendImage}>
         <MyText $v="Sfdfdf" />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={sendImages}>
+        <MyText $v="Sfdfdfsasas" />
       </TouchableOpacity>
       <AddFileModal {...props} selectDocs={{ callback: setImgs }} />
     </ScreenView>

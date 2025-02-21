@@ -1,5 +1,5 @@
 import { GET_CARS } from 'src/Ω/car-list/api';
-import { gql } from 'src/libs/apollo';
+import { gql } from 'src/libs/apollo/_gen_';
 import { useMutation } from '@apollo/client';
 
 export const UPDATE_CAR = gql(`

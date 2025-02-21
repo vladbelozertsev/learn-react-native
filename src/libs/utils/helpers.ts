@@ -63,7 +63,7 @@ export const wset = (prams: { [key: string]: any }) => {
   return Object.fromEntries(entries);
 };
 
-export class ReactNativeFile {
+export class RNFile {
   uri: string;
   name: string;
   type: string;

@@ -1,4 +1,4 @@
-import { gql } from 'src/libs/apollo';
+import { gql } from 'src/libs/apollo/_gen_';
 import { useMutation } from '@apollo/client';
 
 export const CREATE_USER = gql(`

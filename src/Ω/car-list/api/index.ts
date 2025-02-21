@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { gql } from 'src/libs/apollo';
+import { gql } from 'src/libs/apollo/_gen_';
 
 export const GET_CARS = gql(`
   query GetCars($take: Int $skip: Int) {

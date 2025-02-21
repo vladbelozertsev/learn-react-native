@@ -116,6 +116,10 @@ export type FileInput = {
   file?: InputMaybe<Scalars['Upload']['input']>;
 };
 
+export type FilesInput = {
+  files?: InputMaybe<Array<Scalars['Upload']['input']>>;
+};
+
 export type FloatFieldUpdateOperationsInput = {
   decrement?: InputMaybe<Scalars['Float']['input']>;
   divide?: InputMaybe<Scalars['Float']['input']>;
@@ -166,6 +170,7 @@ export type LogoutOutput = {
 export type Mutation = {
   __typename?: 'Mutation';
   addCarImg: Car;
+  addCarImgs: Car;
   createCar: Car;
   createUser: User;
   login: LoginOutput;
@@ -179,6 +184,11 @@ export type Mutation = {
 
 export type MutationAddCarImgArgs = {
   input: FileInput;
+};
+
+
+export type MutationAddCarImgsArgs = {
+  input: FilesInput;
 };
 
 
